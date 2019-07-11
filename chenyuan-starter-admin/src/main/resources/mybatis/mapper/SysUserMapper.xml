@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenyuan.starter.admin.repository.SysUserMapper" >
+
+    <select id="findAll" resultType="com.chenyuan.starter.admin.entity.SysUser">
+        SELECT * FROM SYS_USERS T
+    </select>
+
+    <select id="findById" resultType="com.chenyuan.starter.admin.entity.SysUser">
+        SELECT * FROM SYS_USERS T WHERE T.ID = #{id}
+    </select>
+
+    <insert id="save" parameterType="com.chenyuan.starter.admin.entity.SysUser">
+        INSERT INTO
+            SYS_USERS(ID, USERNAME, PASSWORD, NAME)
+            VALUES('111', #{username}, #{password}, #{name})
+    </insert>
+
+    <update id="update"></update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        DELETE FROM SYS_USERS T WHERE T.ID IN (#{ids})
+    </delete>
+
+</mapper>
